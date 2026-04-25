@@ -218,6 +218,33 @@
 \end{frame}
 
 % -------------------------------------------------------------------------
+\begin{frame}{Distribuciones del conjunto de datos}
+  \vspace{-0.3em}
+  \begin{columns}[T]
+    \begin{column}{0.49\textwidth}
+      \begin{center}
+        {\tiny \textbf{Distribuciones generales} (edad, puntaje, género, etnia, países, ictericia, antecedentes familiares, relación)}\\[0.3em]
+        \IfFileExists{imagens/eda_overview.png}{%
+          \includegraphics[width=\linewidth]{imagens/eda_overview.png}
+        }{%
+          \textcolor{gray}{\tiny [Ejecutar el cuaderno para generar \texttt{imagens/eda\_overview.png}]}
+        }
+      \end{center}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{center}
+        {\tiny \textbf{Distribuciones por clase ASD} (ASD vs.\ no-ASD por ítem, edad y puntaje)}\\[0.3em]
+        \IfFileExists{imagens/eda_by_class.png}{%
+          \includegraphics[width=\linewidth]{imagens/eda_by_class.png}
+        }{%
+          \textcolor{gray}{\tiny [Ejecutar el cuaderno para generar \texttt{imagens/eda\_by\_class.png}]}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -------------------------------------------------------------------------
 \section{Objetivos, preguntas y resultados previstos}
 
 \begin{frame}{Objetivos y carácter del estudio}
@@ -261,6 +288,66 @@
     \item Métodos no supervisados: clustering, factorial o PCA, según celdas del cuaderno.
     \item Evaluación de \textbf{reducción de ítems} en desempeño y estabilidad.
   \end{enumerate}
+\end{frame}
+
+\begin{frame}{Random Forest: implementación}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \textbf{Pipeline de preprocesamiento}
+      \begin{itemize}
+        \setlength{\itemsep}{0.2em}
+        \footnotesize
+        \item Escalado $z$-score para variables numéricas (ítems, edad, metadatos binarios).
+        \item \emph{One-hot encoding} para variables categóricas (género, etnia, país, relación).
+      \end{itemize}
+      \vspace{0.4em}
+      \textbf{Clasificador}
+      \begin{itemize}
+        \setlength{\itemsep}{0.2em}
+        \footnotesize
+        \item 300 árboles, profundidad máx.\ 12, \texttt{min\_samples\_leaf=2}.
+        \item \texttt{class\_weight=``balanced''}: compensa la clase minoritaria (ASD).
+        \item Variable objetivo: \texttt{class\_binary} (1\,=\,YES, 0\,=\,NO); \texttt{result} excluido.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \textbf{Validación cruzada}
+      \begin{itemize}
+        \setlength{\itemsep}{0.2em}
+        \footnotesize
+        \item $k=5$ folds estratificados (misma proporción YES/NO por fold).
+        \item Métricas OOF: AUROC, F1, precisión, sensibilidad.
+        \item Resultados \emph{honestos}: el modelo nunca ve los datos de prueba al entrenar.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{¿Qué ítems importan más? Importancia por permutación}
+  \begin{itemize}
+    \setlength{\itemsep}{0.3em}
+    \footnotesize
+    \item Para cada variable se \textbf{aleatoriza} su columna (se convierte en ruido) y se mide cuánto \textbf{cae el AUROC}.
+    \item Caída grande $\Rightarrow$ la variable era relevante; caída nula $\Rightarrow$ el modelo no la necesitaba.
+    \item Se promedia sobre los 5 folds de prueba para estabilizar la estimación.
+    \item La \textbf{correlación de Spearman} entre folds verifica si el \emph{orden} de importancia de A1--A10 es consistente (valor cercano a 1 = ranking estable).
+  \end{itemize}
+  \vspace{0.3em}
+  {\footnotesize\color{gray}
+  Este análisis responde directamente la pregunta central: ¿todos los ítems del AQ-10 contribuyen por igual o hay un subconjunto más informativo?}
+\end{frame}
+
+\begin{frame}{Resultado: importancia por permutación (RF, 5-fold)}
+  \begin{center}
+    \IfFileExists{imagens/rf_permutation_importance.png}{%
+      \includegraphics[width=0.82\linewidth]{imagens/rf_permutation_importance.png}
+    }{%
+      \textcolor{gray}{\small [Ejecutar celda 2 del cuaderno para generar \texttt{imagens/rf\_permutation\_importance.png}]}
+    }
+  \end{center}
+  \vspace{-0.3em}
+  {\tiny Cada barra = caída media en AUROC al permutar esa variable; barras de error = desviación estándar entre folds.
+  Variables con barra larga son las más decisivas para la clasificación.}
 \end{frame}
 
 \begin{frame}{Ética, limitaciones y aportes previstos}

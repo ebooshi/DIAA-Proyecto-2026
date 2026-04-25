@@ -2,5 +2,5 @@
 \beamer@sectionintoc {1}{Guía de la presentación}{2}{0}{1}
 \beamer@sectionintoc {2}{Plantamiento y motivación del estudio}{3}{0}{2}
 \beamer@sectionintoc {3}{Metodología y composición de datos}{6}{0}{3}
-\beamer@sectionintoc {4}{Objetivos, preguntas y resultados previstos}{12}{0}{4}
-\beamer@sectionintoc {5}{Recursos}{18}{0}{5}
+\beamer@sectionintoc {4}{Objetivos, preguntas y resultados previstos}{13}{0}{4}
+\beamer@sectionintoc {5}{Recursos}{22}{0}{5}
