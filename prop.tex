@@ -1,0 +1,145 @@
+%    Primer capítulo: Introducción a los lenguajes de programación.
+%    Barón M. Miguel.
+%    Empezado el 22/12/2025
+%    Concluido el
+
+%    Sección 1: Contexto, Hipótesis & Planteamiento
+\section{Plantamiento y motivación del estudio}
+\subsection{El desafío del diagnóstico clínico del TEA}
+El trastorno del espectro autista es un trastorno del desarrollo que describe ciertos desafíos asociados con la comunicación (verbal y no verbal), las habilidades sociales y los comportamientos repetitivos. Por lo general, el trastorno del espectro autista se diagnostica en un entorno clínico por especialistas con licencia mediante procedimientos que pueden ser largos y costosos. Se estima que el 1.5 por ciento de la población mundial está clasificada con autismo. Lamentablemente, el proceso de diagnóstico oficial de individuos con autismo es tedioso, requiriendo recursos clínicos y métodos de diagnóstico como la Entrevista Diagnóstica para el Autismo (ADI) y la Escala de Observación Diagnóstica para el Autismo (ADOS). En consecuencia, se cree que muchas más personas que están en el espectro permanecen sin ser detectadas
+
+El diagnóstico del Trastorno del Espectro Autista (TEA) en adultos representa un desafío significativo tanto a nivel clínico como social, particularmente en países como México, donde los recursos especializados son limitados y el acceso a servicios de salud mental presenta importantes desigualdades. A diferencia de la infancia, el diagnóstico en la edad adulta suele verse retrasado debido a la falta de reconocimiento de los síntomas, a la adaptación social desarrollada por muchas personas a lo largo de su vida y a la escasa formación de profesionales en la detección del TEA en adultos \hyperlink{1}{[1]} \hyperlink{2}{[2]}.
+
+Uno de los principales obstáculos es el tiempo requerido para obtener un diagnóstico formal. En el contexto mexicano, el proceso puede extenderse por varios meses o incluso años, ya que las personas suelen transitar por múltiples consultas médicas antes de ser referidas a un especialista capacitado. Esta demora se debe, en gran medida, a la ausencia de protocolos de detección sistemática en el primer nivel de atención y a la limitada disponibilidad de clínicas especializadas, especialmente fuera de las grandes zonas urbanas.
+
+El costo asociado al diagnóstico constituye otra barrera relevante. Las evaluaciones clínicas del TEA suelen implicar entrevistas estructuradas, observaciones especializadas y la aplicación de instrumentos estandarizados que requieren tiempo y experiencia profesional. En el sector privado, estos procesos pueden resultar económicamente inaccesibles para una parte considerable de la población mexicana, mientras que en el sistema público la cobertura es insuficiente o inexistente para la población adulta. Esta situación contribuye a que muchas personas posterguen o abandonen la búsqueda de un diagnóstico formal \hyperlink{3}{[3]}.
+
+Ante este panorama, los procesos de tamizaje adquieren una importancia fundamental. Los instrumentos de tamizaje económicos, fiables y autoadministrables, como los cuestionarios estandarizados, permiten identificar de manera preliminar la presencia de rasgos asociados al TEA sin requerir una evaluación clínica inmediata. Estas herramientas no sustituyen el diagnóstico profesional, pero cumplen un papel clave al orientar a las personas hacia la búsqueda de atención especializada, reducir los tiempos de espera y optimizar el uso de recursos clínicos \hyperlink{4}{[4]} \hyperlink{5}{[5]}.
+
+\subsection{Herramientas de tamizaje: \\ el Autism Spectrum Quotient-10 (AQ-10)}
+
+El Autism Spectrum Quotient-10 (AQ-10) es un instrumento de tamizaje breve diseñado para identificar la presencia de rasgos asociados al Trastorno del Espectro Autista (TEA) en población adulta. Se trata de una versión reducida del Autism Spectrum Quotient original de 50 ítems (AQ-50), desarrollada con el objetivo de ofrecer una herramienta rápida, accesible y fácil de administrar en contextos clínicos y de investigación \hyperlink{8}{[8]}.
+
+El cuestionario AQ-10 consta de diez preguntas que evalúan dimensiones centrales asociadas al espectro autista, tales como la comunicación social, la atención al detalle, la flexibilidad cognitiva y la imaginación. Cada ítem se responde mediante una escala tipo Likert y se puntúa de forma binaria, produciendo una puntuación total que refleja la intensidad de los rasgos evaluados. Un puntaje igual o superior a un umbral predefinido sugiere la posible presencia de rasgos autistas y la conveniencia de una evaluación clínica más profunda.
+
+Es importante destacar que el AQ-10 no constituye una herramienta diagnóstica, sino un instrumento de tamizaje. Su propósito principal es facilitar la identificación preliminar de personas que podrían beneficiarse de una evaluación especializada. En este sentido, el AQ-10 funciona como un primer filtro que permite optimizar el uso de recursos clínicos, reducir tiempos de espera y orientar de manera más eficiente las trayectorias de atención.
+
+En el contexto del diagnóstico temprano del TEA, particularmente en adultos, el AQ-10 adquiere una relevancia significativa. Muchas personas adultas con rasgos del espectro no fueron evaluadas durante la infancia y han desarrollado estrategias de adaptación social que dificultan la detección clínica. El carácter autoadministrable, breve y de bajo costo del AQ-10 permite que estas personas puedan explorar de manera inicial la presencia de rasgos compatibles con el espectro autista, incluso en entornos donde el acceso a especialistas es limitado \hyperlink{6}{[6]} \hyperlink{7}{[7]}.
+
+\section{Metodología y herramientas de investigación}
+En este trabajo se emplea un conjunto de datos de acceso público correspondiente al cribado de características de la personalidad relacionadas con el  TEA en población adulta e infantil, disponible a través del repositorio UCI Machine Learning Repository. Dicho conjunto de datos fue proporcionado originalmente por el profesor Fadi Thabtah y se deriva de su investigación sobre la adaptación de técnicas de aprendizaje automático al proceso de detección del TEA en concordancia con los criterios establecidos en el DSM-5 \hyperlink{9}{[9]}.
+
+\subsection{Recopilado de información: \\ ASDTest app}
+
+El punto de partida del trabajo de Thabtah surge de dos problemáticas bien documentadas: (i) los largos tiempos de espera y el alto costo asociados al diagnóstico clínico formal del TEA, y (ii) la escasez de conjuntos de datos conductuales abiertos que permitan analizar rasgos autistas desde una perspectiva computacional. Aunque existen repositorios genéticos ampliamente utilizados (como AGRE o NDAR), los datos conductuales para tamizaje temprano son limitados y difíciles de obtener.
+
+Con el objetivo de abordar estas limitaciones, se desarrolló una aplicación móvil denominada \textit{ASDTests}, diseñada tanto como herramienta de filtrado preliminar como mecanismo de recolección de datos a gran escala. La aplicación permite a padres, cuidadores, profesionales de la salud y a los propios individuos contestar cuestionarios breves basados en instrumentos psicométricos validados.
+
+Durante un periodo aproximado de cuatro meses se recopilaron inicialmente 1452 instancias correspondientes a infantes, niños, adolescentes y adultos. Debido a un fuerte desbalance de clases en el grupo de infantes (aproximadamente 96\% sin rasgos de TEA), este subconjunto fue separado para análisis posteriores.
+
+El conjunto final analizado consta de aproximadamente 1100 registros correspondientes a niños, adolescentes y adultos, con una distribución típica de la población general: mayor proporción de casos sin TEA y mayor participación masculina. Las edades promedio reportadas fueron de 6.3 años (niños), 14.1 años (adolescentes) y 29.7 años (adultos)\hyperlink{9}{[9]}.
+
+La aplicación ASDTests integra versiones cortas de instrumentos ampliamente aceptados en la literatura clínica:
+
+\begin{itemize} \item \textbf{AQ-10 (Autism Quotient-10):} versiones para niños, adolescentes y adultos, derivadas del AQ original de 50 ítems, enfocadas en dominios como comunicación social, atención al detalle y flexibilidad cognitiva. \item \textbf{Q-CHAT-10:} versión abreviada del Checklist for Autism in Toddlers, orientada a la detección de rasgos autistas en infantes y niños pequeños. \end{itemize}
+
+El proceso de recopilación de datos sigue un flujo estandarizado:
+
+\begin{enumerate} \item Selección de idioma (la aplicación está disponible en 11 idiomas). \item Selección del rango de edad del individuo evaluado. \item Aplicación del cuestionario correspondiente (AQ-10 o Q-CHAT-10). \item Revisión de respuestas por parte del usuario. \item Captura de variables demográficas y contextuales. \item Cálculo automático del puntaje y despliegue del resultado. \end{enumerate}
+
+\subsection{Composición del conjunto de datos}
+
+Los datos se almacenan en una base de datos relacional (MySQL), permitiendo su posterior análisis estadístico y computacional. Además de las respuestas binarias a los ítems del cuestionario (A1--A10), el sistema recolecta un conjunto de variables adicionales que enriquecen el análisis:
+
+\begin{table}[htbp]
+\centering
+\caption{Features recopiladas, sus descripciones y su correspondencia con el cuestionario AQ-10.}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Feature} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+Age & Número & Adults (year), es decir, 17 años o más \\
+Gender & String & Male o female \\
+Ethnicity & String & Lista de etnias comunes en formato de texto \\
+Born with jaundice & Boolean (yes/no) & Indica si la persona nació con ictericia \\
+Family member with PDD & Boolean (yes/no) & Indica si un familiar inmediato tiene PDD \\
+Who is completing the test & String & Parent, self, caregiver, medical staff, clinician, etc. \\
+Country of residence & String & Lista de países en formato de texto \\
+Used the screening app before & Boolean (yes/no) & Indica si el usuario ha usado antes la aplicación de tamizaje \\
+Screening method type & Integer (0,1,2,3) & Tipo de método según la categoría de edad (0 = Toddler, 1 = Child, 2 = Adolescent, 3 = Adult). En este estudio se utiliza únicamente Adult. \\
+A1 & Binary (0,1) & I often notice small sounds when others do not \\
+A2 & Binary (0,1) & I usually concentrate more on the whole picture rather than small details \\
+A3 & Binary (0,1) & I find it easy to do more than one thing at once \\
+A4 & Binary (0,1) & If there is an interruption, I can switch back to what I was doing very quickly \\
+A5 & Binary (0,1) & I find it easy to ``read between the lines'' when someone is talking to me \\
+A6 & Binary (0,1) & I know how to tell if someone listening to me is getting bored \\
+A7 & Binary (0,1) & When I’m reading a story I find it difficult to work out the characters’ intentions \\
+A8 & Binary (0,1) & I like to collect information about categories of things (e.g. types of cars, birds, trains, plants) \\
+A9 & Binary (0,1) & I find it easy to work out what someone is thinking or feeling just by looking at their face \\
+A10 & Binary (0,1) & I find it difficult to work out people’s intentions \\
+ASD score & Integer & Puntaje final basado en la función de puntuación del AQ-10-Adult (calculado automáticamente) \\
+Class label & Boolean & Decisión final basada en el AQ-10-Adult. Valores: 0 (sin rasgos ASD) o 1 (con rasgos ASD) \\
+\bottomrule
+\end{tabularx}
+
+\caption*{\footnotesize PDD: pervasive developmental disorder; ASD: autism spectrum disorder.}
+\end{table}
+
+La variable objetivo (presencia o ausencia de rasgos de TEA) se deriva directamente de las reglas de puntuación definidas por los instrumentos AQ-10 y Q-CHAT-10. Cada respuesta relevante suma un punto, y un puntaje superior al umbral establecido (por ejemplo, >6 en AQ-10 Adulto) genera una recomendación de evaluación clínica formal.
+
+Este etiquetado automático permite construir un dataset supervisado sin intervención manual de expertos clínicos caso por caso, lo que facilita la escalabilidad del proceso.
+
+\begin{itemize}[leftmargin=*,noitemsep]
+  \item \textbf{Instrumento:} Cuestionario \textit{AQ-10} (10 ítems). Véase versión referenciada: \href{https://leademployer.merseywestlancs.nhs.uk/media/Neurodiversity/Adult-autism-AQ10-questionnaire-test-v1.pdf}{AQ-10 (PDF)}.
+  \item \textbf{Observaciones:} Respuestas binarias/categóricas por ítem registradas mediante autoinforme.
+  \item \textbf{Metadatos:} Edad, sexo, contexto de administración (clínico/autoadministrado), fecha, país, ictericia, y consentimiento informado.
+  \item \textbf{Etiqueta (target):} Variable binaria \texttt{ASD} $\in\{0,1\}$ indicando presencia de rasgos compatibles con TEA (1 = compatible, 0 = no compatible). Etiquetado a partir de historial clínico o validación cruzada con evaluación profesional cuando esté disponible.
+  \item \textbf{Preprocesado:} Codificación de respuestas, imputación controlada (si procede), normalización de metadatos y partición estratificada en entrenamiento/validación/prueba.
+\end{itemize}
+
+\section{Objetivos, resultados y aportes}
+\subsection{Objetivos de la investigación}
+\begin{enumerate}[leftmargin=*,noitemsep]
+  \item \textbf{Metodológico–analítico:} Analizar la expresividad del cuestionario AQ-10 mediante modelos de aprendizaje automático interpretable, con el fin de estudiar la contribución individual de sus ítems, identificar redundancias y explorar patrones latentes de rasgos autistas más allá de decisiones basadas en umbrales fijos.\\\\
+  \item \textbf{Clínico–operativo:} Evaluar el potencial del aprendizaje automático como herramienta de apoyo al tamizaje del Trastorno del Espectro Autista, orientada a una detección preliminar más informada y a la optimización del uso de recursos clínicos, sin sustituir el diagnóstico especializado. \\\\
+
+Cabe señalar que, debido a la relativa reciente disponibilidad de este conjunto de datos, la literatura científica que lo utiliza es aún limitada. En consecuencia, existen pocos estudios que reporten resultados comparables o modelos de referencia ampliamente aceptados, lo que confiere a este trabajo un carácter principalmente exploratorio y experimental. Bajo este contexto, el presente estudio busca contribuir al análisis empírico del desempeño de distintos modelos de clasificación aplicados al tamizaje del Trastorno del Espectro Autista.
+\end{enumerate}
+
+\subsection{Preguntas de investigación}
+\begin{enumerate}[leftmargin=*,noitemsep]
+  \item ¿Aportan los modelos de aprendizaje automático interpretable información adicional al esquema tradicional de puntuación del AQ-10 basado en pesos iguales y umbrales fijos?
+  \item ¿Existen ítems del AQ-10 que contribuyan de manera diferencial a la identificación de rasgos autistas y que puedan ser considerados más informativos o redundantes desde una perspectiva basada en datos?
+  \item ¿Es posible identificar perfiles o patrones latentes de rasgos autistas a partir de las respuestas individuales del AQ-10, independientemente del puntaje total obtenido?
+  \item ¿Puede el aprendizaje automático estimar de forma confiable el puntaje o la probabilidad de tamizaje positivo utilizando un subconjunto reducido de ítems del AQ-10?
+  \item ¿Presentan los modelos aprendidos diferencias en su comportamiento o en la importancia de los ítems al analizar subgrupos poblacionales como sexo, grupo etario o región?
+  \item ¿Qué ventajas y limitaciones presentan los modelos interpretable frente a reglas determinísticas en términos de claridad explicativa y apoyo a la toma de decisiones clínicas preliminares?
+\end{enumerate}
+
+\subsection{Metodología resumida}
+\begin{enumerate}[leftmargin=*,noitemsep]
+  \item Análisis exploratorio de los datos del AQ-10, incluyendo distribución de ítems, correlaciones y detección de redundancias.
+  \item División estratificada del conjunto de datos en subconjuntos de entrenamiento, validación y prueba.
+  \item Entrenamiento de modelos interpretable, incluyendo regresión logística, árboles de decisión y modelos de ensamble (Random Forest), comparados con la regla tradicional de puntuación como línea base.
+  \item Evaluación de desempeño utilizando métricas de tamizaje: sensibilidad, especificidad, AUC-ROC y análisis de incertidumbre en casos limítrofes.
+  \item Análisis de interpretabilidad mediante coeficientes, importancia de características y métodos de explicación local y global (por ejemplo, SHAP).
+  \item Exploración de métodos no supervisados (clustering, análisis factorial o PCA) para la identificación de patrones latentes en las respuestas.
+  \item Evaluación del impacto de la reducción de ítems en el desempeño y estabilidad de los modelos.
+\end{enumerate}
+
+\subsection{Consideraciones éticas y limitaciones}
+\begin{itemize}[leftmargin=*,noitemsep]
+  \item Protección de datos personales mediante anonimización y uso exclusivo de información con consentimiento informado.
+  \item Reconocimiento de que los modelos desarrollados tienen fines de tamizaje preliminar y no constituyen herramientas diagnósticas.
+  \item Riesgo de sesgos derivados de la composición del conjunto de datos y limitaciones en la representatividad poblacional.
+  \item Necesidad de validación externa y clínica antes de cualquier posible aplicación práctica.
+\end{itemize}
+
+\subsection{Resultado esperado y aporte}
+Se espera demostrar que el uso de modelos de aprendizaje automático interpretable aplicados al AQ-10 puede:
+\begin{itemize}[leftmargin=*,noitemsep]
+  \item Evidenciar que no todos los ítems del cuestionario contribuyen de igual forma al tamizaje de rasgos autistas.
+  \item Identificar subconjuntos de ítems capaces de mantener un desempeño comparable al cuestionario completo.
+  \item Revelar patrones o perfiles de rasgos autistas no capturados por el puntaje total.
+  \item Proporcionar explicaciones claras y comprensibles que apoyen la toma de decisiones clínicas preliminares y la priorización de evaluaciones especializadas.
+\end{itemize}

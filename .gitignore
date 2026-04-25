@@ -1,0 +1,9 @@
+# Cursor (editor settings, local plans, etc.)
+.cursor/
+.aux
+.nav
+.synctex
+.synctex.gz
+.toc
+.log
+.out
